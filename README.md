@@ -66,12 +66,12 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 This project is licensed under the MIT License.
 
 
-## Get
+## Request
 
 ## Example usage
 
 ```powershell
-.\get.ps1 -InputFile "C:\Users\OMEN\Desktop\filtered-urls.txt"
+.\Request.ps1 -InputFile "C:\Users\OMEN\Desktop\filtered-urls.txt"
 ```
 
 ## Technical Details
