@@ -64,7 +64,3 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ## License
 
 This project is licensed under the MIT License.
-
----
-
-اگر خواستی من برات فایل `README.md` آماده کنم تا دانلود کنی، بگو فقط!
