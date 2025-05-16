@@ -1,5 +1,4 @@
-##Recon
-
+## Recon
 A PowerShell script to fetch archived URLs of a domain from the Wayback Machine (web.archive.org) with optional filtering by multiple patterns.
 
 ---
@@ -67,7 +66,7 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 This project is licensed under the MIT License.
 
 
-##Get
+## Get
 
 ## Example usage
 
