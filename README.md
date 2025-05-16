@@ -1,7 +1,3 @@
-مطمئناً! این یک نمونه README کامل و کاربردی بر اساس کد نهایی نسخه v2.2 است که ورودی لیستی از پترن‌ها را می‌گیرد:
-
----
-
 # Wayback URLs Fetcher
 
 A PowerShell script to fetch archived URLs of a domain from the Wayback Machine (web.archive.org) with optional filtering by multiple patterns.
@@ -29,7 +25,7 @@ A PowerShell script to fetch archived URLs of a domain from the Wayback Machine 
 ### Run the script without filtering:
 
 ```powershell
-.\Get-WaybackUrls.ps1 -Domain "example.com"
+.\Recon.ps1 -Domain "example.com"
 ```
 
 This command fetches and displays all archived URLs for `example.com`.
@@ -39,7 +35,7 @@ This command fetches and displays all archived URLs for `example.com`.
 ### Run the script with filtering (one or more patterns):
 
 ```powershell
-.\Get-WaybackUrls.ps1 -Domain "example.com" -FilterPatterns ".php", "/admin", ".jpg"
+.\Recon.ps1 -Domain "example.com" -FilterPatterns ".php", "/admin", ".jpg"
 ```
 
 This command fetches URLs containing **any** of the specified patterns and saves them to `filtered-urls.txt` in the script directory.
