@@ -64,3 +64,86 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ## License
 
 This project is licensed under the MIT License.
+
+
+````markdown
+# PowerShell URL Requester with Burp Proxy Support
+
+This script reads URLs from a text file and sends HTTP GET requests to each URL.  
+Requests are routed through a Burp Suite proxy running at `http://127.0.0.1:8080` for inspection.
+
+---
+
+## Usage
+
+1. Put your list of URLs into a text file (e.g., `urls.txt`), each URL on a separate line or embedded in text.
+
+2. Run the script:
+
+```powershell
+.\get.ps1 -InputFile "urls.txt"
+````
+
+---
+
+## Adding Burp Suite CA Certificate
+
+To avoid SSL errors when making HTTPS requests through Burp, you need to add Burp's CA certificate to your system’s trusted root certificates.
+
+### Steps to add Burp CA:
+
+1. Open Burp Suite and go to **Proxy > Options**.
+
+2. Click **Import / export CA certificate** and export the certificate in `DER` or `PEM` format.
+
+3. Install the CA certificate on Windows:
+
+   * Right-click the certificate file and choose **Install Certificate**.
+   * Select **Local Machine** (Administrator rights required).
+   * Choose **Place all certificates in the following store** and select **Trusted Root Certification Authorities**.
+   * Complete the installation wizard.
+
+4. Restart your browsers and tools to apply the new trusted CA.
+
+---
+
+## Notes for Running the Script with CA
+
+If you encounter SSL errors while running the script:
+
+* Make sure Burp’s CA certificate is added as above.
+* Alternatively, disable SSL verification in requests (not recommended and tricky in PowerShell).
+
+---
+
+## Parameters
+
+| Parameter   | Description                      | Default    |
+| ----------- | -------------------------------- | ---------- |
+| `InputFile` | Path to the file containing URLs | `urls.txt` |
+
+---
+
+## Technical Details
+
+* Requests are sent sequentially with a random delay between 50 to 200 milliseconds.
+* The Burp proxy is set at `http://127.0.0.1:8080` and passed to `Invoke-WebRequest` via the `-Proxy` parameter.
+
+---
+
+## Troubleshooting
+
+* If the script doesn’t run, ensure you are in the correct directory or provide the full script path.
+* You might need to change the PowerShell execution policy:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+---
+
+## Example usage
+
+```powershell
+.\get.ps1 -InputFile "C:\Users\OMEN\Desktop\filtered-urls.txt"
+```
